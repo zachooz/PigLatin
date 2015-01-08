@@ -42,6 +42,21 @@ public int findFirstVowel(String sWord){
 	return -1;
 }
 
+public String pigLatin(String sWord){
+	if(findFirstVowel(sWord) == -1){
+		return sWord + "ay";
+	} else if(findFirstVowel(sWord) == 0){
+		return sWord + "way";
+	} else if(findFirstVowel(sWord)>0){
+		return sWord.substring(findFirstVowel(sWord)) + sWord.substring(0,findFirstVowel(sWord)) + "ay";
+	} else if(findFirstVowel(sWord) > 0){
+		return sWord.substring(1) + sWord.substring(0,1) + "ay";
+	} else {
+		return "ERROR";
+	}
+}
+
+
 public String lowellHymDecoder(String hym){
 	String output = "";
 	int start = 0;
@@ -52,7 +67,8 @@ public String lowellHymDecoder(String hym){
 			continue;
 		} else if(hym.substring(i, i+1).equals(",")){
 			//System.out.println(hym.substring(i, i+1));
-			output = output.substring(0, output.length()-1);
+			output+=pigLatin(hym.substring(start, finish));
+			System.out.println(hym.substring(start, finish));
 			output+=", ";
 			start = finish+1;
 			finish++;
@@ -73,20 +89,6 @@ public String lowellHymDecoder(String hym){
 		}		
 	}
 	return output;
-}
-
-public String pigLatin(String sWord){
-	if(findFirstVowel(sWord) == -1){
-		return sWord + "ay";
-	} else if(findFirstVowel(sWord) == 0){
-		return sWord + "way";
-	} else if(findFirstVowel(sWord)>0){
-		return sWord.substring(findFirstVowel(sWord)) + sWord.substring(0,findFirstVowel(sWord)) + "ay";
-	} else if(findFirstVowel(sWord) > 0){
-		return sWord.substring(1) + sWord.substring(0,1) + "ay";
-	} else {
-		return "ERROR";
-	}
 }
   static public void main(String[] passedArgs) {
     String[] appletArgs = new String[] { "PigLatin" };
