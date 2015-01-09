@@ -78,7 +78,7 @@ public String lowellHymDecoder(String hym){
 			finish++;
 		}else if(hym.substring(i, i+1).equals(".")){
 			//System.out.println(hym.substring(i, i+1));
-			output = output.substring(0, output.length()-1);
+			output+=pigLatin(hym.substring(start, finish));
 			output+=". ";
 			start = finish+1;
 			finish++;
