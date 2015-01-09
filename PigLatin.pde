@@ -25,6 +25,9 @@ public int findFirstVowel(String sWord){
 }
 
 public String pigLatin(String sWord){
+	if(sWord.equals("") || sWord.equals(" ")){
+		return "";
+	}
 	if(findFirstVowel(sWord) == -1){
 		return sWord + "ay";
 	} else if(findFirstVowel(sWord) == 0){

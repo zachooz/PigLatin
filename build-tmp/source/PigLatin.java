@@ -43,6 +43,9 @@ public int findFirstVowel(String sWord){
 }
 
 public String pigLatin(String sWord){
+	if(sWord.equals("") || sWord.equals(" ")){
+		return "";
+	}
 	if(findFirstVowel(sWord) == -1){
 		return sWord + "ay";
 	} else if(findFirstVowel(sWord) == 0){
@@ -69,6 +72,7 @@ public String lowellHymDecoder(String hym){
 			//System.out.println(hym.substring(i, i+1));
 			output+=pigLatin(hym.substring(start, finish));
 			System.out.println(hym.substring(start, finish));
+			//output = output.substring(0, output.length()-1);
 			output+=", ";
 			start = finish+1;
 			finish++;
