@@ -9,13 +9,13 @@ public void setup() {
 	for (int i = 0 ; i < lines.length; i++) {
 		System.out.println(pigLatin(lines[i]));
 	}
+	System.out.println();
 	System.out.println("Lines Decoded");
 	System.out.println();
 	for (int i = 0 ; i < hymLines.length; i++) {
 		lowellHym+=hymLines[i];
 	}
 	System.out.println(lowellHymDecoder(lowellHym));
-	System.out.println();
 	System.out.println("Hymn Decoded");
 	System.out.println();
 }
