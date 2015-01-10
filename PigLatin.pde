@@ -9,11 +9,15 @@ public void setup() {
 	for (int i = 0 ; i < lines.length; i++) {
 		System.out.println(pigLatin(lines[i]));
 	}
+	System.out.println("Lines Decoded");
+	System.out.println();
 	for (int i = 0 ; i < hymLines.length; i++) {
 		lowellHym+=hymLines[i];
 	}
 	System.out.println(lowellHymDecoder(lowellHym));
-	System.out.println("DONE");
+	System.out.println();
+	System.out.println("Hymn Decoded");
+	System.out.println();
 }
 
 public int findFirstVowel(String sWord){
@@ -56,7 +60,7 @@ public String pigLatin(String sWord){
 
 
 public String lowellHymDecoder(String hym){
-	String output = "";
+	String output = " ";
 	int start = 0;
 	int finish = 0;
 	for(int i=0; i<hym.length(); i++){
@@ -67,13 +71,13 @@ public String lowellHymDecoder(String hym){
 			//System.out.println(hym.substring(i, i+1));
 			output+=pigLatin(hym.substring(start, finish));
 			//output = output.substring(0, output.length()-1);
-			output+=", ";
+			output+=",\n";
 			start = finish+1;
 			finish++;
 		}else if(hym.substring(i, i+1).equals(".")){
 			//System.out.println(hym.substring(i, i+1));
 			output+=pigLatin(hym.substring(start, finish));
-			output+=". ";
+			output+=".\n\n";
 			start = finish+1;
 			finish++;
 		}else{
